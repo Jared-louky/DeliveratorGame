@@ -1,4 +1,8 @@
-import sys, time 
+import time
+import sys
+
+
+from deliveries import Delivery 
 
 
 def print_slow(str):
@@ -7,8 +11,32 @@ def print_slow(str):
         sys.stdout.flush()
         time.sleep(0.1)
 
-print("Hello, candidate. Welcome to CosaNostra Pizza Company, A 'Family' run 'corperate' conclomerant."
-      "We are now using a simluation to find the right individuals to fill roles in our delivery department")
+user_name = input("What is your name?   ")
+
+print_slow("""
+Hello {}
+Welcome to CosaNostra delivery simulation. 
+""".format(user_name))
+
+def try_again():
+    pass
 
 
-player_name = input("What is your name?  ")
+
+question = input("Would you like to continue?Y/N ")
+if question == ("N").lower:
+    print_slow("""
+Thank you for your interest 
+    """)
+elif question == ("Y").lower:
+    print_slow("Preparing simulation")
+    time.sleep(.8)
+    game_start()
+
+
+def game_start(): 
+    print_slow("""
+    Here is the information about your first order
+    """)
+    if __name__ == "__main__":
+        Delivery.delivery_info()
