@@ -18,7 +18,7 @@ class Delivery():
         self.cash = cash
 
 # Returns length of drive time 
-    def delivery_time(self, time):
+    def delivery_time(self):
         return self.time
 
 # Returns the amount of order 
@@ -31,7 +31,13 @@ class Delivery():
         print(self.order_amount())
         
 # Returns the amount of cash player recives for delivery 
-    def pay_out(self, cash, distance, time, order_amount):
+    def pay_out(self):
+        # pay = (distance * 10)
+        # tip = (order_amount * .2)
+            #if self.time =< 27:
+                # tip = (order_amount * .2)
+            #else:
+                # tip == 0
         pass
         
         
