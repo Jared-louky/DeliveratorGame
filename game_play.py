@@ -1,6 +1,4 @@
-import time
-import sys
-import os
+import time, sys, os
 
 import deliveries
 
@@ -9,10 +7,6 @@ def print_slow(str):
         sys.stdout.write(letter)
         sys.stdout.flush()
         time.sleep(0.1)
-
-def end_game():
-    print("Thank you for your interest.")
-
 
 #Game play flow 
 user_name = input("What is your name?   ")
@@ -26,7 +20,8 @@ while True:
         print("Here is your first order")
         break
     elif question.lower() == "n":
-        end_game()
+        print("Thank you")
+        exit()
     else:
         print("Please enter Yes or No.")
         question
@@ -36,21 +31,17 @@ while True:
 
 deliveries.order_info()
 
-accept = input("Would you like to accept this order?Y/N ")
+
 while True:
+    accept = input("Would you like to accept this order?Y/N ")
     if accept.lower() == "y":
         break
-    elif accept.lower() == "n":
-        print("Here is another order")
+    elif accept.lower() == "n":   #Issues with Loop
+        accept
         break
     else:
         print("Please enter Yes or No.")
 
 deliveries.order_completion()
 
-
-
-    
-
-
-
+deliveries.new_order()

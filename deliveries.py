@@ -1,13 +1,11 @@
-import random 
-import time 
-import math 
-import datetime
+import random, time, math
+
 
 #class Delivery():
 distance = random.randint(7, 35)
 rate = 65
 time = math.ceil((distance / rate ) * 60)
-order_amount = random.randint(100,500)
+order_amount = round(random.randint(100,500),2)
 payout = order_amount * .15
 
 #    def __init__(self, distance, rate, time, order_amount, payout, *args, **kwargs):
@@ -23,14 +21,15 @@ def order_info():
     print("The order total is ${}.".format(order_amount))
 
 def order_completion():
-    while True:
-        if time <= 30:
-            print("Congradulations you have completed the order, and you have earned ${}.".format(payout))
-            break
-        else:
-            print("You have gone over the delivery time, prepare for termination")
-            break
+    if time <= 30:
+        print("Congradulations you have completed the order, and you have earned ${}.".format(payout))
 
-def new_order():
+    else:
+        print("You have gone over the delivery time, prepare for termination")
+        exit()
+
+
+
+def new_order(): ## I need new_order to pull new ints for distance and order amount.
     print("Your destination is {} miles away.".format(distance))
     print("The order total is ${}.".format(order_amount))
