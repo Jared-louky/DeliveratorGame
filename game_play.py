@@ -2,10 +2,7 @@ import time
 import sys
 import os
 
-
-from deliveries import Delivery 
-
-
+import deliveries
 
 def print_slow(str):
     for letter in str:
@@ -13,31 +10,47 @@ def print_slow(str):
         sys.stdout.flush()
         time.sleep(0.1)
 
-def try_again():
-    pass
+def end_game():
+    print("Thank you for your interest.")
 
+
+#Game play flow 
 user_name = input("What is your name?   ")
 
-print_slow("""
-Hello {}
-Welcome to CosaNostra delivery simulation. 
-""".format(user_name))
+print("Hello {}, Welcome to CosaNostra delivery simulation.\n".format(user_name))
+
+
+while True:
+    question = input("Would you like to continue? Y/N ")
+    if question.lower() == "y":
+        print("Here is your first order")
+        break
+    elif question.lower() == "n":
+        end_game()
+    else:
+        print("Please enter Yes or No.")
+        question
 
 
 
 
-## Program unexpectly stops 
-question = input("Would you like to continue? Y/N ")
-if question.lower() == "y":
-    print_slow("Preparing simulation")
-    return game_play()
+deliveries.order_info()
 
-elif question.lower() == "n":
-    print_slow("Thank you for your interest")
-else:
-    print("Please enter Yes or No.")
-    return question
+accept = input("Would you like to accept this order?Y/N ")
+while True:
+    if accept.lower() == "y":
+        break
+    elif accept.lower() == "n":
+        print("Here is another order")
+        break
+    else:
+        print("Please enter Yes or No.")
 
-def game_play():
-    print("Let's being")
+deliveries.order_completion()
+
+
+
+    
+
+
 

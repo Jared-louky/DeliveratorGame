@@ -1,47 +1,36 @@
 import random 
 import time 
 import math 
+import datetime
 
-# Sets the information needed for Delivery and Fuel
-distance = random.randint(5, 35)
+#class Delivery():
+distance = random.randint(7, 35)
 rate = 65
 time = math.ceil((distance / rate ) * 60)
-cash = ""
+order_amount = random.randint(100,500)
+payout = order_amount * .15
+
+#    def __init__(self, distance, rate, time, order_amount, payout, *args, **kwargs):
+#        self.distance = distance
+#        self.rate = rate
+#        self.time = time
+#        self.order_amount = order_amount
+#        self.payout = payout
 
 
-# Contains all the information and caculations needed for one delivery 
-class Delivery():
-    def __init__(self, distance, rate, time, credits, **kwargs):
-        self.distance = distance
-        self.rate = rate 
-        self.time = time
-        self.cash = cash
+def order_info():
+    print("Your destination is {} miles away.".format(distance))
+    print("The order total is ${}.".format(order_amount))
 
-# Returns length of drive time 
-    def delivery_time(self):
-        return self.time
+def order_completion():
+    while True:
+        if time <= 30:
+            print("Congradulations you have completed the order, and you have earned ${}.".format(payout))
+            break
+        else:
+            print("You have gone over the delivery time, prepare for termination")
+            break
 
-# Returns the amount of order 
-    def order_amount(self):
-        print("The order is for ${}".format(random.randint(100,500)))
-        
-# Prints out all the order information
-    def delivery_info(self):
-        print("Your delivery is {} miles away.".format(self.distance))
-        print(self.order_amount())
-        
-# Returns the amount of cash player recives for delivery 
-    def pay_out(self):
-        # pay = (distance * 10)
-        # tip = (order_amount * .2)
-            #if self.time =< 27:
-                # tip = (order_amount * .2)
-            #else:
-                # tip == 0
-        pass
-        
-        
-
-
-
-
+def new_order():
+    print("Your destination is {} miles away.".format(distance))
+    print("The order total is ${}.".format(order_amount))
