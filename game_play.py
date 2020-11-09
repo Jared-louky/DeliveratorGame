@@ -1,12 +1,13 @@
-import time, sys, os
+import time, sys, os, random, math
 
-from deliveries import GenerateOffer
+from deliveries import Order
 
 def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
         time.sleep(0.1)
+
 
 def game_menu():
     print("Welcome to your option menu {}, below are a list of options to aid you".format(user_name))
@@ -21,8 +22,7 @@ def game_menu():
     while True:
         if choice == "1":
             print("Here is your order.") 
-            # import and print order_info()
-            pass
+            Order.order_info()
         elif choice == "2":
             print("you've chosen 2") #remove before final version 
             # import and print credit_account()
@@ -35,7 +35,10 @@ def game_menu():
             print("Thank you for your interest, dont forget CosaNostra's 30 minutes or else delivery gaurentee. /n Gooodbye")
             exit()
         else:
-            print("Please choose a number from above")       
+            print("Please choose a number from above")  
+
+
+
 
 
 
@@ -55,4 +58,6 @@ face termination
 time.sleep(1)
 
 game_menu()
+
+Order.end_game()
 
