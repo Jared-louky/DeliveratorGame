@@ -1,6 +1,6 @@
 import time, sys, os, random, math
 
-from deliveries import Order
+from deliveries import(Delivery) #there will be two more classes to import so please ignore the parenthesis 
 
 def print_slow(str):
     for letter in str:
@@ -22,11 +22,10 @@ def game_menu():
     while True:
         if choice == "1":
             print("Here is your order.") 
-            Order.order_info()
+            Delivery.delivery_info # **** This doesn't break out of the loop
         elif choice == "2":
             print("you've chosen 2") #remove before final version 
-            # import and print credit_account()
-            pass
+            #Wallet() 
         elif choice == "3": # remove before final version 
             # import and print odometer
             print("you've chosen 3") #remove before final version 
@@ -58,6 +57,4 @@ face termination
 time.sleep(1)
 
 game_menu()
-
-Order.end_game()
 
