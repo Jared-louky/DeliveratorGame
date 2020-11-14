@@ -1,10 +1,13 @@
 import time, sys, os, random, math
 
 from deliveries import OrderInfo
+from wallet import Wallet
 
 
-#delivery_info = OrderInfo()
 
+
+delivery_info = OrderInfo(random.randint(7,35), random.randint(65,75))
+account_info = Wallet()
 #Functions for fillagry
 def print_slow(str):
     for letter in str:
@@ -22,7 +25,7 @@ def game_menu():
     while True:
         if choice == "1":
             print("Here is your first order")
-            #Print("".format(delivery_info.order_amount, delivery_info.distance))
+            delivery_info.generate_order()
             confirmation = None
             while confirmation not in ["y", "n"]:
                 confirmation = input("Would you like a different order?. Y/N ")
