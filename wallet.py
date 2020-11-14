@@ -1,18 +1,22 @@
 from deliveries import Delivery
 
+delivery_info = Delivery() 
+
 class Wallet():
+    
+    def __init__(self, commission, **kwargs):
+        self.commission = commission
+        
+    def payout(self):
+        payout = delivery_info.order_amount * self.commission
+        return payout
+        
+        
 
-    my_payout = Delivery()
-
-    if __name__ == "__main__":
-
-        def __init__(self, my_payout, **kwargs):
-            self.my_payout = my_payout.payout()
-
-        def balance(self):
-            account = []
-            account = account.append(self.my_payout)
-            print(account)
+    def payout_deposit(self):
+        account = []
+        account = account.append()
+        print(account)
 
 
 

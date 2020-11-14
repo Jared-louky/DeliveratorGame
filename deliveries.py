@@ -1,41 +1,36 @@
 import time, sys, os, random, math
 
 
-class Delivery():
-
+class OrderInfo():
+    
     if __name__ == "__main__":
+    
+        def __init__(self, *args, **kwargs):
+                    
+            def distance(self):
+                distance = random.randint(7, 35)
+                print(distance)
 
-        def __init__(self, distance=random.randint(7, 35), rate=65, order_amount=round(random.randint(100,500), 2), **kwargs):
-            self.distance = distance
-            self.rate = rate
-            self.order_amount = order_amount
-
-        def payout(self): 
-            payout = self.order_amount * .15
-            return payout
+            def rate(self):
+                rate = 65
+                print(rate)
             
-        def generate_offer(self):
-            print("Your delivery is for ${} and is {} miles away.".format(self.order_amount, self.distance))
+            def order_amount(self):
+                order_amount = round(random.randint(100,500), 2)
+                print(order_amount)
 
-        def confirm_offer(self):
-            user_input = input("Would you like another delivery? Y?N  ")
-            answer = False
-            while answer == False:
-                if user_input == "y" or user_input == "Y":
-                    continue
+            def delivery_time(self):
+                delivery_time = ((distance/rate)*60)
+                print(delivery_time)
+            
+            def delivery_result():
+                if delivery_time <= 31:
+                    print("You completed your delivery in {} minutes.".format(delivery_time))
                 else:
-                    answer = True
-        
-
-        def delivery_time(self):
-            delivery_time = ((self.distance/self.rate)*60)
-            return delivery_time
-
-                
-        def delivery_results(self):
-                if  self.delivery_time <= 31:
-                    print("The delivery has been conpeteled")
-                    print("You have earned ${}.".format(self.payout))
-                else:
-                    print("You have not completed the delivery within 30 minutes, a termination team is on the way to your location.")
-                    exit()
+                    print("You did not complete your delivery in 30 min. Goodbye")
+                    
+OrderInfo.distance()
+OrderInfo.rate()
+OrderInfo.order_amount()
+OrderInfo.delivery_time()
+OrderInfo.delivery_result()

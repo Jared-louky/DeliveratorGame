@@ -1,12 +1,9 @@
 import time, sys, os, random, math
 
-from wallet import Wallet
-from deliveries import Delivery
+from deliveries import OrderInfo
 
 
-
-my_wallet = Wallet()
-my_delivery = Delivery()
+#delivery_info = OrderInfo()
 
 #Functions for fillagry
 def print_slow(str):
@@ -24,13 +21,28 @@ def game_menu():
     choice = input("Please choose the corresponding number of what you'd like to do. ")
     while True:
         if choice == "1":
-            my_delivery.generate_offer()
+            print("Here is your first order")
+            #Print("".format(delivery_info.order_amount, delivery_info.distance))
+            confirmation = None
+            while confirmation not in ["y", "n"]:
+                confirmation = input("Would you like a different order?. Y/N ")
+                if confirmation == "y":
+                    print("Here is your second order results")
+                    # genterate order results
+                elif confirmation == "n":
+                    print("Here are your delivery results.")
+                    # genterate delivery results
+                    game_menu()
+                else:
+                    print("Please enter Y/N") 
+            game_menu()       
         elif choice == "2":
-            my_wallet.balance()
-            pass
+            print("You have money in your account.")
+            # generate bank statment
+            game_menu()
         elif choice == "3":
-            print("""Thank you for your interest, dont forget CosaNostra's 30 minutes or else delivery gaurentee. 
-            Gooodbye.""")
+            print_slow("Thank you for your interest, dont forget CosaNostra's 30 minutes or else delivery gaurentee.")
+            print("Goodbye!")
             exit()
         else:
             choice = False
@@ -54,7 +66,6 @@ face termination
 time.sleep(1)
 
 print("Welcome to your option menu {}, below are a list of options to aid you".format(user_name))
-time.sleep(1)
+time.sleep(.5)
 
 game_menu()
-
