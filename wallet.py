@@ -1,19 +1,17 @@
-from game_play import payout  
+from deliveries import Delivery
 
+class Wallet():
 
+    my_payout = Delivery()
 
-class Wallet:
     if __name__ == "__main__":
 
-        my_payment = payout
-    
-        def __init__(self, my_payment, ):
-            self.my_payment = my_payment
-            
+        def __init__(self, my_payout, **kwargs):
+            self.my_payout = my_payout.payout()
 
         def balance(self):
             account = []
-            account = account.append(self.my_payment)
+            account = account.append(self.my_payout)
             print(account)
 
 
