@@ -20,11 +20,11 @@ The project will fulfill these requirements needeed to pass the Code Louisville 
 * A "Master Loop" allows the player to restart the game upon failure
 The "master loop" is located in <game_play.py> it is the player's option menu
 
-* Create and call at least 3 functions.  Nearly all the functions for the game are located in the deliveries.py file    and are imported onto the game_play.py
+* Create and call at least 3 functions.  Nearly all the functions for the game are located in the deliveries.py file and are imported onto the <game_play.py>
 
-* Create a class, then create at least on eobject of that class and populate it with data. 
+* Create a class, then create at least on eobject of that class and populate it with data. These classes are located in <delivery.py> and <wallet.py> objects and arguments of these classes can be found in <game_play.py>
 
-* Create a dictionary or list, populate it with data.  These functions exsist on the <deliveries.py> file contained within the class <GenerateOffer>
+* Create a dictionary or list, populate it with data.  These functions exsist on the <wallet.py> file contained within the class  functions of <Wallet>
 
 
 The game in it current form is a very simple one, additional features can and will be added as I expand my Python knowledge.

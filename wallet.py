@@ -1,4 +1,5 @@
 import random, math
+from math import fsum
 
 
 class Wallet():
@@ -8,23 +9,22 @@ class Wallet():
         self.order_amount = order_amount
         self.balance = []
         
+    def pay_out(self):
+        pay_out = round(self.order_amount * .15, 2)
+        return pay_out
 
     def generate_total(self):
         print("Here is your order total ${}".format(self.order_amount))
-        
-    def payout(self):
-        payout = (self.order_amount * .15)
-        return payout
     
     def pay_alert(self):
-        print("You have received ${}.".format(self.payout))    
+        print("You have received ${}.".format(self.balance))    
             
     def deposit(self):
-        for deposit in self.balance:      
-            amount = self.payout
-            self.balance.append(amount)
-        return self.balance
-        
-        
+        for d in self.balance:      
+            deposit = self.pay_out
+            self.balance.append(deposit)
+            
     def statement(self):
-        print("You have ${} in your account".format(sum(self.balance)))
+        statement = sum(self.balance)
+        return statement
+    

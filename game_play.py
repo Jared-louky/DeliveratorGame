@@ -7,17 +7,23 @@ distance = random.randint(7,35)
 rate = random.randint(65, 75)
 order_amount = random.randint(150, 350)
 
+new_distance = random.randint(7,20)
+new_rate = random.randint(65,75)
+new_order_amount = random.randint(150,350)
+
 
 delivery_info = OrderInfo(distance, rate)
 account_info = Wallet(order_amount)
 
+new_delivery_info = OrderInfo(new_distance, new_rate)
+new_account_info = Wallet(new_order_amount)
 
 #Functions for fillagry
 def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.2)
+        time.sleep(.08)
 
 def game_menu():
     print(""" 
@@ -28,30 +34,33 @@ def game_menu():
     choice = input("Please choose the corresponding number of what you'd like to do. ")
     while True:
         if choice == "1":
-            print("Here is your first order")
+            print_slow("Here is your first order" + "\n")
             delivery_info.generate_order()
+            time.sleep(.5)
             account_info.generate_total()
             
             confirmation = None
             while confirmation not in ["y", "n"]:
                 confirmation = input("Would you like a different order?. Y/N ").lower()
                 if confirmation == "y":
-                    print("You delivered it in {} minutes and earned $ {}.".format(delivery_info.distance, account_info.payout))
+                    print_slow("You delivered it in {} minutes and earned $ {}.".format(new_delivery_info.delivery_time(), new_account_info.pay_out()) + "\n")
+                    time.sleep(1)
                     game_menu()
                 elif confirmation == "n":
                     delivery_info.delivery_result()
-                    account_info.pay_alert()
+                    print_slow("You earned ${}.".format(account_info.pay_out()))
+                    time.sleep(1)
                     game_menu()
                 else:
                     print("Please enter Y/N") 
             game_menu()       
         elif choice == "2":
-            print("You have money in your account.")
-            account_info.statement()
+            print("You have ${} in your account.".format(account_info.statement()))
             game_menu()
         elif choice == "3":
             print_slow("Thank you for your interest, dont forget CosaNostra's 30 minutes or else delivery gaurentee.")
-            print("Goodbye!")
+            time.sleep(1.75)
+            print("   Goodbye!")
             exit()
         else:
             choice = False

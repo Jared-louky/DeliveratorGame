@@ -14,11 +14,11 @@ class OrderInfo():
             pass
 
         def delivery_time(self):
-            delivery_time = ((self.distance/self.rate)*60)
+            delivery_time = int(self.distance/self.rate *60)
             return delivery_time
 
         def delivery_result(self):
-            if self.delivery_time() < int(31):
+            if self.delivery_time() < 31:
                 print("Delivery complete")
             else:
                 print("You did not complete your delivery in 30 min. Goodbye")
