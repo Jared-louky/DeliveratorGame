@@ -11,6 +11,7 @@ order_amount = random.randint(150, 350)
 delivery_info = OrderInfo(distance, rate)
 account_info = Wallet(order_amount)
 
+
 #Functions for fillagry
 def print_slow(str):
     for letter in str:
@@ -35,11 +36,11 @@ def game_menu():
             while confirmation not in ["y", "n"]:
                 confirmation = input("Would you like a different order?. Y/N ").lower()
                 if confirmation == "y":
-                    print("Here is your second order results")
-                    delivery_info.delivery_result()
+                    print("You delivered it in {} minutes and earned $ {}.".format(delivery_info.distance, account_info.payout))
+                    game_menu()
                 elif confirmation == "n":
                     delivery_info.delivery_result()
-                    account_info.deposit
+                    account_info.pay_alert()
                     game_menu()
                 else:
                     print("Please enter Y/N") 

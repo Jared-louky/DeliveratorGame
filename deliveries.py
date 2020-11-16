@@ -9,15 +9,17 @@ class OrderInfo():
         
         def generate_order(self):
             print("Your delivery is {} miles away.".format(self.distance))
-            
+
+        def second_order(self):
+            pass
 
         def delivery_time(self):
             delivery_time = ((self.distance/self.rate)*60)
             return delivery_time
 
         def delivery_result(self):
-            if self.delivery_time <= 30:
-                print("You completed your delivery in {} minutes.".format(self.delivery_time))
+            if self.delivery_time() < int(31):
+                print("Delivery complete")
             else:
                 print("You did not complete your delivery in 30 min. Goodbye")
                 exit()
