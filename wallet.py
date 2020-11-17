@@ -10,14 +10,24 @@ class Wallet():
         self.balance = []
 
 #sets the value for player pay       
+    def tip_out(self):
+        tip_out = random.randint(30,150)
+        return tip_out
+    
     def pay_out(self):
-        pay_out = round(random.randint(int(self.order_amount * .2), int(self.order_amount * .35)))# random reasonable tip percentant plus delivery charge
+        delivery_fee = 15.0
+        pay_out = self.tip_out() + delivery_fee
         return pay_out
     
+    def pay_out_alert(self):
+        pay_out_alert = self.pay_out()
+        return pay_out_alert
+    
     def generate_deposit(self):
-            deposit = self.pay_out()
+            deposit = self.pay_out_alert()
             self.balance.append(deposit)
-            
+            print("You earned ${}".format(deposit))
+                    
     def balance_total(self):
         balance_statement = sum(self.balance)
         return balance_statement
@@ -25,6 +35,5 @@ class Wallet():
     def generate_total(self):
         print("Here is your order total ${}".format(self.order_amount))
     
-    def pay_alert(self):
-        print("You have received ${}.".format(self.pay_out))  
+      
         

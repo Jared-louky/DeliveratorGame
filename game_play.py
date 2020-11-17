@@ -52,8 +52,7 @@ def game_menu():
                 confirmation = input("Would you like accept this offer. Y/N ").lower()
                 if confirmation == "y":
                     delivery_info.delivery_result()
-                    account_info.generate_deposit()
-                    print_slow("You delivered it in {} minutes and earned $ {}.".format(delivery_info.delivery_time(), account_info.pay_out()) + "\n")
+                    print_slow("You delivered it in {} minutes.".format(delivery_info.delivery_time()) + "\n")
                     time.sleep(1)
                     break
                 elif confirmation == "n":
@@ -62,13 +61,12 @@ def game_menu():
                     time.sleep(.5)
                     account_info.generate_total()
                     time.sleep(1)
-                    new_delivery_info.delivery_result()
-                    account_info.generate_deposit()
-                    print_slow("You delivered it in {} minutes and earned $ {}.".format(new_delivery_info.delivery_time(), account_info.pay_out()) + "\n")
+                    print_slow("You delivered it in {} minutes.".format(new_delivery_info.delivery_time()) + "\n")
                     time.sleep(1)
                     break
                 else:
-                    print("Please enter Y/N")              
+                    print("Please enter Y/N")  
+            account_info.generate_deposit()           
             game_menu()       
         elif choice == "2":
             print_slow("You have ${} in your account".format(account_info.balance_total()) + "\n")
